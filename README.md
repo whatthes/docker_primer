@@ -52,4 +52,7 @@ tags an image with name and repo to be deployed
 `docker push <repo path>:<imagetagname>`
 
 ## Docker example commands
-`docker run -it -d --restart unless-stopped -p 8080:80 nginx
+`docker run -it -d --restart unless-stopped -p 8080:80 nginx`
+
+## Create Docker Image from running containers
+`docker commit --change='ENTRYPOINT ["apachectl", "-DFOREGROUND"]' <containerID> <containername>:<versiontag>
