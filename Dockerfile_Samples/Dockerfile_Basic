@@ -1,0 +1,20 @@
+
+FROM ubuntu            specify base layer       must begin with a FROM instruction. 
+
+#Skip prompts, specific to debian based OS
+ARG DEBIAN_FRONTEND=noninteractive
+
+#Update Packages
+RUN apt update; apt dist-upgrade -y
+
+#Install packages
+RUN apt install -y apache2 vim-nox
+
+
+ENV FOO=/bar                   set env--> can be used as var for some instr in dockerfile
+
+
+USER <user>[:<group>]                   assumes user
+
+#Set entrypoint
+ENTRYPOINT 
