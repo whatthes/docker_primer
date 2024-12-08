@@ -9,7 +9,7 @@
 ## Common commands
 ### list images that are available locally
 `docker images`
-
+docker rmi -f $(docker images -aq)
 ### look for images
 `docker search <keyword>`
 
@@ -27,6 +27,7 @@ shows list of containers running/were running
 ### Remove
 `docker rm <container name>`  remove containers
 `docker rmi <image name>` remove image
+`docker rmi -f $(docker images -aq)` removes ALL images
 
 ## Interactive mode
 `docker -it --rm -v <local dir>:<container dir> --entrypoint "/bin/bash" <image name>`
