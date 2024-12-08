@@ -9,7 +9,6 @@
 ## Common commands
 ### list images that are available locally
 `docker images`
-
 ### look for images
 `docker search <keyword>`
 
@@ -26,7 +25,10 @@ shows list of containers running/were running
 
 ### Remove
 `docker rm <container name>`  remove containers
+
 `docker rmi <image name>` remove image
+
+`docker rmi -f $(docker images -aq)` removes ALL images
 
 ## Interactive mode
 `docker -it --rm -v <local dir>:<container dir> --entrypoint "/bin/bash" <image name>`
@@ -52,4 +54,7 @@ tags an image with name and repo to be deployed
 `docker push <repo path>:<imagetagname>`
 
 ## Docker example commands
-`docker run -it -d --restart unless-stopped -p 8080:80 nginx
+`docker run -it -d --restart unless-stopped -p 8080:80 nginx`
+
+## Create Docker Image from running containers
+`docker commit --change='ENTRYPOINT ["apachectl", "-DFOREGROUND"]' <containerID> <containername>:<versiontag>`
